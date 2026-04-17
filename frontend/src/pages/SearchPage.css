@@ -1,89 +1,74 @@
-.search-page-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  min-height: 80vh;
+.search-page {
+    padding: 20px;
 }
 
-.search-header {
-  margin-bottom: 40px;
-  border-bottom: 1px solid #f3f4f6;
-  padding-bottom: 20px;
+.search-results {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
-.search-header h1 {
-  font-size: 2rem;
-  color: #111827;
-  font-weight: 800;
-  margin-bottom: 8px;
-  letter-spacing: -1px;
+/* Each product row */
+.search-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid #eee;
+    padding: 12px;
+    border-radius: 10px;
+    transition: 0.2s;
 }
 
-.keyword-text {
-  color: #4f46e5;
-  font-style: italic;
+.search-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.results-count {
-  color: #6b7280;
-  font-size: 1.1rem;
+/* Image */
+.search-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 .products-grid {
-  display: grid;
-  grid-template-cols: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
 }
 
-.no-results {
-  text-align: center;
-  padding: 80px 20px;
-  background-color: #f9fafb;
-  border-radius: 16px;
-  color: #4b5563;
+
+/* Info */
+.search-info {
+    flex: 1;
 }
 
-.no-results-icon {
-  font-size: 4rem;
-  margin-bottom: 20px;
+.price {
+    font-weight: bold;
+    margin: 6px 0;
 }
 
-.no-results h2 {
-  font-size: 1.5rem;
-  color: #111827;
-  margin-bottom: 12px;
+/* Buttons */
+.search-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
 }
 
-.loading-state, .error-state {
-  text-align: center;
-  padding: 100px 20px;
+.btn-add {
+    background: black;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
-.spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid #f3f4f6;
-  border-top: 4px solid #111827;
-  border-radius: 50%;
-  margin: 0 auto 20px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@media (max-width: 640px) {
-  .search-page-container {
-    padding: 20px 16px;
-  }
-  
-  .search-header h1 {
-    font-size: 1.5rem;
-  }
-  
-  .products-grid {
-    grid-template-cols: 1fr;
-  }
+.btn-view {
+    padding: 6px 12px;
+    border: 1px solid black;
+    border-radius: 6px;
+    text-decoration: none;
+    color: black;
 }

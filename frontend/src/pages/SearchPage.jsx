@@ -62,7 +62,7 @@ export default function SearchPage() {
       ) : (
         <div className="products-grid">
           {products.map((product) => (
-            <Product key={product.id} product={product} />
+            <Product key={product.id} product={product} variant="list" />
           ))}
         </div>
       )}

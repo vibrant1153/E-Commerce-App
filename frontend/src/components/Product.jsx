@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 
-function Product({ product }) {
+function Product({ product, variant = "grid" }) {
   const navigate = useNavigate();
   const { addToCart } = useContext(CartContext);
   const [showToast, setShowToast] = useState(false);
@@ -13,9 +13,34 @@ function Product({ product }) {
     setTimeout(() => setShowToast(false), 2000);
   };
 
+  const isList = variant === "list";
+
   return (
-    <div className="group relative bg-white border border-gray-200" style={{ padding: '24px', borderRadius: '16px', display: 'flex', flexDirection: 'column', height: '100%', boxSizing: 'border-box' }}>
-      <div className="relative w-full overflow-hidden bg-gray-100 flex items-center justify-center" style={{ height: '200px', borderRadius: '12px', marginBottom: '20px' }}>
+    <div 
+      className="group relative bg-white border border-gray-200" 
+      style={{ 
+        padding: '24px', 
+        borderRadius: '16px', 
+        display: 'flex', 
+        flexDirection: isList ? 'row' : 'column', 
+        alignItems: isList ? 'center' : 'stretch',
+        height: isList ? 'auto' : '100%', 
+        boxSizing: 'border-box',
+        transition: 'all 0.3s ease',
+        cursor: 'default'
+      }}
+    >
+      <div 
+        className="relative overflow-hidden bg-gray-100 flex items-center justify-center" 
+        style={{ 
+          height: isList ? '160px' : '200px', 
+          width: isList ? '200px' : '100%',
+          flexShrink: 0,
+          borderRadius: '12px', 
+          marginBottom: isList ? '0' : '20px',
+          marginRight: isList ? '24px' : '0'
+        }}
+      >
         <img 
           src={product.image}
           alt={product.name}
@@ -23,12 +48,29 @@ function Product({ product }) {
         />
       </div>
 
-      <div className="flex-grow" style={{ padding: '0 8px' }}>
-        <h3 className="text-xl font-semibold text-gray-900 group-hover:text-gray-600 transition-colors line-clamp-1">{product.name}</h3>
-        <p className="font-bold text-gray-900" style={{ marginTop: '8px', fontSize: '24px' }}>${product.price}</p>
+      <div className="flex-grow" style={{ padding: isList ? '0' : '0 8px' }}>
+        <h3 className="text-xl font-semibold text-gray-900 group-hover:text-gray-600 transition-colors line-clamp-1">
+          {product.name}
+        </h3>
+        <p className="text-gray-500 text-sm mt-1 line-clamp-2" style={{ display: isList ? 'block' : 'none' }}>
+          {product.description || "Premium quality product designed for your everyday needs."}
+        </p>
+        <p className="font-bold text-gray-900" style={{ marginTop: '8px', fontSize: isList ? '28px' : '24px' }}>
+          ${product.price}
+        </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-3" style={{ padding: '0 8px', marginTop: '24px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+      <div 
+        className="flex gap-3" 
+        style={{ 
+          padding: isList ? '0' : '0 8px', 
+          marginTop: isList ? '0' : '24px', 
+          display: 'flex', 
+          flexDirection: isList ? 'column' : 'row',
+          width: isList ? '180px' : 'auto',
+          marginLeft: isList ? '24px' : '0'
+        }}
+      >
         <button 
           onClick={() => navigate(`/product/${product.id}`)} 
           className="w-full flex items-center justify-center border border-black text-black bg-white hover:bg-gray-100 transition-colors"

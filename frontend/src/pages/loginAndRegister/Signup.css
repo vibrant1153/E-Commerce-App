@@ -1,0 +1,47 @@
+/* ============================================
+   signup.css
+   Sign Up page specific styles
+   ============================================ */
+ 
+@import './auth-shared.css';
+ 
+/* Password strength bar */
+.strength-bar {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+}
+.strength-segment {
+  flex: 1;
+  height: 2px;
+  background: #e8e3d9;
+  border-radius: 2px;
+  transition: background 0.3s;
+}
+.strength-segment.active-weak   { background: #d85a30; }
+.strength-segment.active-fair   { background: #ef9f27; }
+.strength-segment.active-strong { background: #3b6d11; }
+.strength-segment.active-great  { background: #1d9e75; }
+ 
+/* Terms & conditions checkbox row */
+.terms-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #8a8778;
+  font-weight: 300;
+  line-height: 1.5;
+  margin-bottom: 1.8rem;
+  margin-top: -0.4rem;
+}
+.terms-label input {
+  margin-top: 2px;
+  accent-color: #c5a368;
+  flex-shrink: 0;
+}
+.terms-label a {
+  color: #c5a368;
+  text-decoration: none;
+}

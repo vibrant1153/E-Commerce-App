@@ -1,0 +1,177 @@
+/* Container Layout */
+.checkout-page {
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.checkout-container {
+  max-width: 42rem; /* 2xl */
+  margin: 0 auto;
+  padding: 3rem 1rem; /* py-12 px-4 */
+}
+
+@media (min-width: 640px) {
+  .checkout-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.checkout-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 2rem;
+}
+
+.checkout-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Section Styling */
+.section-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.address-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.input-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Input Fields */
+.input-field {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-field:focus {
+  border-color: #9ca3af;
+}
+
+.flex-grow {
+  flex: 1;
+}
+
+.input-small {
+  width: 8rem;
+}
+
+/* Cart / Summary Card */
+.cart-card {
+  border: 1px solid #f3f4f6;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.item-image {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  background-color: #f9fafb;
+}
+
+.item-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.item-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.item-qty {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.item-price {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.cart-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background-color: #f9fafb;
+}
+
+.total-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.total-amount {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Error & Button */
+.error-message {
+  font-size: 0.875rem;
+  color: #f87171;
+  text-align: center;
+}
+
+.place-order-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.place-order-btn:hover {
+  background-color: #1f2937;
+}
+
+.place-order-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
